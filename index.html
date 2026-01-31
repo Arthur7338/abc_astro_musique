@@ -43,14 +43,25 @@
     }
 
     .content {
-      max-width: 600px;
+      max-width: 800px;
       margin: 0 auto;
       background: white;
       border-radius: 16px;
       padding: 2rem;
       box-shadow: 0 10px 25px rgba(0,0,0,0.1);
       display: none;
+      gap: 2rem;
+      align-items: center;
     }
+
+    .content.active {
+      display: flex;
+    }
+
+    .text {
+      flex: 1;
+    }
+
 
     .content h2 {
       margin-top: 0;
@@ -75,16 +86,23 @@
   <div class="alphabet" id="alphabet"></div>
 
   <div class="content" id="content">
-    <div class="icon"><img id="icon" alt="" /></div>
+    <div class="text">
+      <h2 id="word"></h2>
+      <p id="description"></p>
+    </div>
+    <div class="icon">
+      <img id="icon" alt="" />
+    </div>
+  </div>
     <h2 id="word"></h2>
     <p id="description"></p>
   </div>
 
   <script>
     const data = {
-      A: { img: "images/A_v2.png", word: "Abricot", text: "Un fruit sucré et orangé, symbole de l'été." },
-      B: { img: "images/B_v2.png", word: "Bibliothèque", text: "Un lieu rempli de livres et de connaissances." },
-      C: { img: "images/C_v2.png", word: "Chat", text: "Un animal curieux et indépendant." }
+      A: { img: "images/A.png", word: "Abricot", text: "Un fruit sucré et orangé, symbole de l'été." },
+      B: { img: "images/B.png", word: "Bibliothèque", text: "Un lieu rempli de livres et de connaissances." },
+      C: { img: "images/C.png", word: "Chat", text: "Un animal curieux et indépendant." }
       // Ajoute les autres lettres ici jusqu'à Z
     };
 
@@ -104,7 +122,7 @@
         img.alt = data[letter].word;
         document.getElementById("word").textContent = `${letter} — ${data[letter].word}`;
         document.getElementById("description").textContent = data[letter].text;
-        contentDiv.style.display = "block";
+        contentDiv.classList.add("active");
       };
 
       alphabetDiv.appendChild(div);
