@@ -57,8 +57,14 @@
     }
 
     .icon {
-      font-size: 3rem;
+      text-align: center;
       margin-bottom: 1rem;
+    }
+
+    .icon img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
     }
   </style>
 </head>
@@ -69,16 +75,16 @@
   <div class="alphabet" id="alphabet"></div>
 
   <div class="content" id="content">
-    <div class="icon" id="icon"></div>
+    <div class="icon"><img id="icon" alt="" /></div>
     <h2 id="word"></h2>
     <p id="description"></p>
   </div>
 
   <script>
     const data = {
-      A: { icon: "🍎", word: "Abricot", text: "Un fruit sucré et orangé, symbole de l'été." },
-      B: { icon: "📚", word: "Bibliothèque", text: "Un lieu rempli de livres et de connaissances." },
-      C: { icon: "🐱", word: "Chat", text: "Un animal curieux et indépendant." }
+      A: { img: "images/A.png", word: "Abricot", text: "Un fruit sucré et orangé, symbole de l'été." },
+      B: { img: "images/B.png", word: "Bibliothèque", text: "Un lieu rempli de livres et de connaissances." },
+      C: { img: "images/C.png", word: "Chat", text: "Un animal curieux et indépendant." }
       // Ajoute les autres lettres ici jusqu'à Z
     };
 
@@ -93,7 +99,9 @@
 
       div.onclick = () => {
         if (!data[letter]) return;
-        document.getElementById("icon").textContent = data[letter].icon;
+        const img = document.getElementById("icon");
+        img.src = data[letter].img;
+        img.alt = data[letter].word;
         document.getElementById("word").textContent = `${letter} — ${data[letter].word}`;
         document.getElementById("description").textContent = data[letter].text;
         contentDiv.style.display = "block";
