@@ -168,10 +168,13 @@
       Z: { 
         img: "images/Z_v2.png", 
         word: "Zéphyr", 
-        text: "Le Trio à cordes Zéphyr, qui joue dans <a href='https://www.waterbabiesproduction.com/les4saisonsdelunivers'>les 4 saisons de l’Univers</a>, partage son nom avec un astéroïde de 2 km, considéré comme potentiellement dangereux pour la Terre." 
+        text: "Le Trio à cordes Zéphyr, qui joue dans <a href='https://www.waterbabiesproduction.com/les4saisonsdelunivers' target='_blank'>les 4 saisons de l’Univers</a>, partage son nom avec un astéroïde de 2 km, considéré comme potentiellement dangereux pour la Terre." 
       }
     };
-
+    
+    // Au clic
+    document.getElementById("description").innerHTML = data["Z"].text;
+    
     const alphabetDiv = document.getElementById("alphabet");
     const contentDiv = document.getElementById("content");
 
@@ -187,7 +190,8 @@
         document.getElementById("icon").src = data[letter].img;
         document.getElementById("icon").alt = data[letter].word;
         document.getElementById("word").textContent = `${letter} — ${data[letter].word}`;
-        document.getElementById("description").textContent = data[letter].text;
+        document.getElementById("description").innerHTML = data[letter].text;
+        //document.getElementById("description").textContent = data[letter].text;
 
         contentDiv.classList.add("active");
       };
