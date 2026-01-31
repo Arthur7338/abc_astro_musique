@@ -7,15 +7,16 @@
   <style>
     body {
       font-family: system-ui, sans-serif;
-      background: #f6f7fb;
+      background: #121212;  /* fond sombre global */
       margin: 0;
       padding: 2rem;
-      color: #333;
+      color: #fff;
     }
 
     h1 {
       text-align: center;
       margin-bottom: 2rem;
+      color: #fff;
     }
 
     .alphabet {
@@ -27,28 +28,29 @@
     }
 
     .letter {
-      background: white;
+      background: #1e1e1e;  /* fond sombre pour les cases */
       border-radius: 12px;
       padding: 1rem;
       text-align: center;
       cursor: pointer;
       font-size: 1.5rem;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
       transition: transform 0.15s ease, background 0.15s ease;
+      color: #fff;
     }
 
     .letter:hover {
       transform: translateY(-3px);
-      background: #eef2ff;
+      background: #333333;
     }
 
     .content {
       max-width: 800px;
       margin: 0 auto;
-      background: white;
+      background: #1e1e1e;  /* fond sombre du texte */
       border-radius: 16px;
       padding: 2rem;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
       display: none;
       gap: 2rem;
       align-items: center;
@@ -57,7 +59,7 @@
 
     .content.active {
       display: flex;
-      flex-direction: row;      /* Texte à gauche, image à droite */
+      flex-direction: row;
       gap: 2rem;
       align-items: center;
       justify-content: space-between;
