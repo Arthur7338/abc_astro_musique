@@ -52,10 +52,15 @@
       display: none;
       gap: 2rem;
       align-items: center;
+      flex-direction: row;
     }
 
     .content.active {
       display: flex;
+      flex-direction: row;      /* Texte à gauche, image à droite */
+      gap: 2rem;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .text {
@@ -73,6 +78,15 @@
       max-width: 300px;
       height: auto;
       object-fit: contain;
+    }
+
+    @media (max-width: 600px) {
+      .content.active {
+        flex-direction: column;
+      }
+      .icon img {
+        max-width: 100%;
+      }
     }
   </style>
 </head>
