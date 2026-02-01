@@ -198,6 +198,13 @@
     
     // Au clic
     document.getElementById("description").innerHTML = data["Z"].text;
+
+    //pour faire défiler 
+    <div id="content">
+      <img id="icon" src="" alt="">
+      <h2 id="word"></h2>
+      <div id="description"></div>
+    </div>
     
     const alphabetDiv = document.getElementById("alphabet");
     const contentDiv = document.getElementById("content");
@@ -218,7 +225,14 @@
         //document.getElementById("description").textContent = data[letter].text;
 
         contentDiv.classList.add("active");
-      };
+
+        // 🔽 SCROLL AUTOMATIQUE (ICI)
+        if (window.innerWidth < 768) {
+         document.getElementById("content").scrollIntoView({
+         behavior: "smooth"
+         });
+        }
+     };
 
       alphabetDiv.appendChild(div);
     }
